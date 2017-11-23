@@ -1,0 +1,60 @@
+* {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+}
+
+main {
+    width: 40%;
+    margin: 0 auto; 
+    background-color: #876ED7;
+    padding: 20px;
+    border: 3px solid #6C8CD5;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    margin-bottom: 2px;
+}
+
+label,input{
+    display: block;
+}
+
+input, select {
+    display: inline-block;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+main #io-panel input {
+    width: 100px;
+}
+
+main div#currency-type-group {
+    overflow: hidden;
+    margin: 30px 0; 
+}
+
+main div#currency-type-group div {
+    padding: 5px 10px;
+}
+
+main div#currency-type-group div:nth-child(1) {
+    float: left;
+}
+
+main div#currency-type-group div:nth-child(2) {
+    float: right;
+}
+
+main form {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.clear-fix {
+    clear: both;
+}

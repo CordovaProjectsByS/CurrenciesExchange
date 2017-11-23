@@ -64,7 +64,6 @@ function validate(indexSource, indexTarget) {
     
     var kwota = moneyValue.value;
     kwota = kwota.replace(/\s+/g, '');
-    alert("1" + kwota + "1");
     if (isNaN(kwota) || kwota == "") {
         return "Wartość kwoty jest błędna";
     }

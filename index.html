@@ -3,18 +3,28 @@
     <head>
         <title>Javascript</title>
         <meta charset="utf-8"/>
-       
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
         <main>
             <form id="form">
-                <label for="money-value" >Kwota: </label>
-                <input type="text" id="money-value" value="100"/></br>
-                <p id="result"></p> 
-                <label for="source-currency">Waluta początkowa</label>
-                <select id="source-currency"></select>
-                <label for="target-currency">Waluta docelowa</label>
-                <select id="target-currency"></select></br>
+                <div id="io-panel">
+                    <label for="money-value" >Kwota: </label>
+                    <input type="text" id="money-value" value="100"/>
+                    <p id="result"></p> 
+                </div>
+                <div id="currency-type-group">
+                    <div>
+                        <label for="source-currency">Waluta początkowa</label>
+                        <select id="source-currency"></select>
+                    </div>
+                    <div>
+                        <label for="target-currency">Waluta docelowa</label>
+                        <select id="target-currency"></select>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
                 <button id="button">Wyślij</button>
             </form>            
         </main>
