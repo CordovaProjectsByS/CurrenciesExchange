@@ -4,11 +4,11 @@
 }
 
 main {
-    width: 40%;
+    width: 60%;
     margin: 0 auto; 
-    background-color: #876ED7;
+    background-color: #33CCCC;
     padding: 20px;
-    border: 3px solid #6C8CD5;
+    border: 3px solid #5CCCCC;
     border-radius: 20px;
     font-weight: bold;
     text-align: center;
@@ -20,6 +20,20 @@ label {
 
 label,input{
     display: block;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    outline: none;
+    radius: none;
+    background: #412C84;
+    border: none;
+}
+
+main #io-panel p#result {
+    font-size: 17px;
 }
 
 input, select {
@@ -39,7 +53,8 @@ main div#currency-type-group {
 }
 
 main div#currency-type-group div {
-    padding: 5px 10px;
+    padding: 5px 0px;
+    width: 48%;
 }
 
 main div#currency-type-group div:nth-child(1) {
@@ -48,6 +63,13 @@ main div#currency-type-group div:nth-child(1) {
 
 main div#currency-type-group div:nth-child(2) {
     float: right;
+}
+
+main div#currency-type-group div img {
+    display: block;
+    width: 100%;
+    height: auto;  
+    margin-top: 5px; 
 }
 
 main form {

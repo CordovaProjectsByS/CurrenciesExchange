@@ -1,14 +1,14 @@
 var currencies = [
-    { 'name': 'Polski złoty', 'code': "PLN"},
-    { 'name': 'EURO', 'code': "EUR"},
-    { 'name': 'Frank Szwajcarski', 'code': "CHF"},
-    { 'name': 'Korona Czeska', 'code': "CZK"},
-    { 'name': 'Rubel Rosyjski', 'code': "RUB"},
-    { 'name': 'Hryvna Ukraińska', 'code': "UAH"},
-    { 'name': 'Funt Brytyjski', 'code': "GBP"},
-    { 'name': 'Korony Norweskie', 'code': "NOK"},
-    { 'name': 'Filipińskie Pesso', 'code': "PHP"},
-    { 'name': 'Dolar Amerykański', 'code': "USD"}
+    { 'name': 'Polski złoty', 'code': "PLN", "image":"img/pln.jpg"},
+    { 'name': 'EURO', 'code': "EUR", "image":"img/euro.jpg"},
+    { 'name': 'Frank Szwajcarski', 'code': "CHF", "image":"img/chf.jpg"},
+    { 'name': 'Korona Czeska', 'code': "CZK", "image":"img/czk.jpg"},
+    { 'name': 'Rubel Rosyjski', 'code': "RUB", "image":"img/rub.jpg"},
+    { 'name': 'Hryvna Ukraińska', 'code': "UAH", "image":"img/uah.jpg"},
+    { 'name': 'Funt Brytyjski', 'code': "GBP", "image":"img/gbp.png"},
+    { 'name': 'Korony Norweskie', 'code': "NOK", "image":"img/nok.jpg"},
+    { 'name': 'Filipińskie Pesso', 'code': "PHP", "image":"img/php.jpg"},
+    { 'name': 'Dolar Amerykański', 'code': "USD", "image":"img/usd.jpg"}
 ];
 
 var sourceCurrencyList = document.getElementById("source-currency");
@@ -17,6 +17,9 @@ var moneyValue = document.getElementById("money-value");
 var result = document.getElementById("result");
 var button = document.getElementById("button");
 var form = document.getElementById("form");
+var imgCurrentCurrency = document.getElementById("img-current-currency");
+var imgTargetCurrency = document.getElementById("img-target-currency");
+
 
 form.onsubmit = function(event) {
     event.preventDefault();
@@ -29,14 +32,25 @@ for (var x in currencies) {
     sourceCurrencyList.appendChild(opt);
 }
 
-
-
 for (x = currencies.length - 1; x >= 0; x--) {
     var opt = document.createElement("option");
     opt.value = x;
     opt.textContent = currencies[x].name + " (" + currencies[x].code + ")";
     targetCurrencyList.appendChild(opt);
 }
+
+sourceCurrencyList.addEventListener('change', function() {
+    let index = sourceCurrencyList.value;
+    let srcImg = currencies[index].image;
+    imgCurrentCurrency.src = srcImg;
+});
+
+targetCurrencyList.addEventListener('change', function() {
+    let index = targetCurrencyList.value;
+    let srcImg = currencies[index].image;
+    imgTargetCurrency.src = srcImg;
+});
+
 
 button.onclick = function() {
 
