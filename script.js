@@ -11,48 +11,57 @@ var currencies = [
     { 'name': 'Dolar Amerykański', 'code': "USD", "image":"img/usd.jpg"}
 ];
 
-var sourceCurrencyList = document.getElementById("source-currency");
-var targetCurrencyList = document.getElementById("target-currency");
-var moneyValue = document.getElementById("money-value");
-var result = document.getElementById("result");
-var button = document.getElementById("button");
-var form = document.getElementById("form");
-var imgCurrentCurrency = document.getElementById("img-current-currency");
-var imgTargetCurrency = document.getElementById("img-target-currency");
+var sourceCurrencyList = $("#source-currency").get(0);
+var targetCurrencyList = $("#target-currency").get(0);
+var moneyValue = $("#money-value").get(0);
+var result = $("#result").get(0);
+var button = $("#button").get(0);
+var form = $("#form").get(0);
+var imgCurrentCurrency = $("#img-current-currency").get(0);
+var imgTargetCurrency = $("#img-target-currency").get(0);
 
 
-form.onsubmit = function(event) {
+$(form).bind("submit", function(event){
     event.preventDefault();
-}
+});
 
 for (var x in currencies) {
     var opt = document.createElement("option");
     opt.value = x;
     opt.textContent = currencies[x].name + " (" + currencies[x].code + ")";
-    sourceCurrencyList.appendChild(opt);
+
+    $(sourceCurrencyList).append(opt);
+
+    //sourceCurrencyList.appendChild(opt);
 }
 
 for (x = currencies.length - 1; x >= 0; x--) {
     var opt = document.createElement("option");
     opt.value = x;
     opt.textContent = currencies[x].name + " (" + currencies[x].code + ")";
-    targetCurrencyList.appendChild(opt);
+
+    $(targetCurrencyList).append(opt);
+
+    //targetCurrencyList.appendChild(opt);  
 }
 
-sourceCurrencyList.addEventListener('change', function() {
+$(sourceCurrencyList).bind("change",  function() {
     let index = sourceCurrencyList.value;
     let srcImg = currencies[index].image;
     imgCurrentCurrency.src = srcImg;
 });
 
-targetCurrencyList.addEventListener('change', function() {
+
+$(targetCurrencyList).bind('change', function() {
     let index = targetCurrencyList.value;
     let srcImg = currencies[index].image;
     imgTargetCurrency.src = srcImg;
 });
 
 
-button.onclick = function() {
+
+
+$(button).bind('click', function() {
 
     let indexSource = sourceCurrencyList.value;
     let indexTarget = targetCurrencyList.value;
@@ -68,7 +77,7 @@ button.onclick = function() {
         result.innerHTML = output;
     }
     
-}
+});
 
 function validate(indexSource, indexTarget) {
     
