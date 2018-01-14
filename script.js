@@ -58,10 +58,7 @@ $(targetCurrencyList).bind('change', function() {
     imgTargetCurrency.src = srcImg;
 });
 
-
-
-
-$(button).bind('click', function() {
+$(button).bind('click', async function() {
 
     let indexSource = sourceCurrencyList.value;
     let indexTarget = targetCurrencyList.value;
@@ -71,7 +68,7 @@ $(button).bind('click', function() {
         result.innerHTML = check;
     }
     else {
-        let rate = sendReqForRate(indexSource, indexTarget);
+        let rate = await sendReqForRate(indexSource, indexTarget);
         let kwota = moneyValue.value;
         let output = kwota + " " + currencies[indexSource].code + " wynosi " + (kwota * rate).toFixed(2) + " " + currencies[indexTarget].code + ".";
         result.innerHTML = output;
@@ -94,18 +91,18 @@ function validate(indexSource, indexTarget) {
     return 'OK';
 }
 
-function sendReqForRate(indexS, indexT) {
+async function sendReqForRate(indexS, indexT) { 
     let base = currencies[indexS].code;
     let target = currencies[indexT].code;
 
     let url = "https://api.fixer.io/latest?base=" + base +"&symbols=" + target;
+    let rate;
 
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", url, false );
-    xmlHttp.send( null );
-    let response =JSON.parse(xmlHttp.responseText);
+    await $.get(url, function(data,status) {
+        rate = data.rates[target];
+    });
 
-    return response.rates[target];
+    return rate;
 } 
 
 
